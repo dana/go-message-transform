@@ -6,7 +6,6 @@ import (
 	"testing"
 )
 
-//func Transform(message *map[string]interface{}, transform map[string]interface{}) error {
 //basic tests from reference implementation:
 //https://github.com/dana/perl-Message-Transform/blob/master/t/basic.t
 func TestSimplestTransform(t *testing.T) {

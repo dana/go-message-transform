@@ -1,7 +1,6 @@
 package messagetransform
 
 import (
-	"fmt"
 	"github.com/kr/pretty"
 )
 
@@ -10,7 +9,7 @@ type TransformError struct {
 }
 
 func (e TransformError) Error() string {
-	return fmt.Sprintf("%v", e.What)
+	return pretty.Sprintf("%v", e.What)
 }
 
 func transformMapMap(messageRef *map[string]interface{}, transform map[string]interface{}) error {
@@ -48,3 +47,13 @@ func Transform(messageRef *map[string]interface{}, transform map[string]interfac
 func no() {
 	pretty.Println("no")
 }
+
+/*
+TODO
+Tons!
+
+Array handling on both sides...the plethora of other cases
+
+Specials too.
+
+*/
