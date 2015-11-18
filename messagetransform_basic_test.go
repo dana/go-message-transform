@@ -1,6 +1,7 @@
 package messagetransform
 
 import (
+	"github.com/kr/pretty"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -21,4 +22,26 @@ func TestSimplestTransform(t *testing.T) {
 	assert.Equal(message["a"], "b")
 	assert.NotNil(message["x"])
 	assert.Equal(message["x"], "y")
+}
+
+func TestSimplestNestedTransform(t *testing.T) {
+	assert := assert.New(t)
+	message := map[string]interface{}{
+		"a": "b",
+	}
+	transform := map[string]interface{}{
+		"c": map[string]interface{}{
+			"d": "e",
+		},
+	}
+	transformErr := Transform(&message, transform)
+	assert.Nil(transformErr)
+	assert.Equal(message["a"], "b")
+	assert.NotNil(message["c"])
+	assert.NotNil(message["c"].(map[string]interface{})["d"])
+	assert.Equal(message["c"].(map[string]interface{})["d"], "e")
+}
+
+func definitelyNo() {
+	pretty.Println("no")
 }
