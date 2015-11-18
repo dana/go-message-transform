@@ -19,5 +19,6 @@ func TestSimplestTransform(t *testing.T) {
 	transformErr := Transform(&message, transform)
 	assert.Nil(transformErr)
 	assert.Equal(message["a"], "b")
+	assert.NotNil(message["x"])
 	assert.Equal(message["x"], "y")
 }

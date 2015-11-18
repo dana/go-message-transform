@@ -1,10 +1,14 @@
 package messagetransform
 
 import (
-	"fmt"
+	"github.com/kr/pretty"
 )
 
-func Transform(message *map[string]interface{}, transform map[string]interface{}) error {
-	fmt.Println("Rock and roll")
+func Transform(messageRef *map[string]interface{}, transform map[string]interface{}) error {
+	message := *messageRef
+	message["x"] = "y"
 	return nil
+}
+func no() {
+	pretty.Println("no")
 }
